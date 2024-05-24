@@ -1,7 +1,7 @@
 
------- * Nitrous priv_9 Menu * ------
+------ * fobro priv_9 Menu * ------
 --[[
-    # Rewriten by: Nitrous
+    # Rewriten by: fobro
 ]]
 
 repeat
@@ -9,8 +9,8 @@ repeat
  until game:IsLoaded()
 
 -- Menu/UI Creation
-if not isfile("Nitrous") then
-    makefolder("Nitrous")
+if not isfile("fobro") then
+    makefolder("fobro")
  end
  
  local menu = game:GetObjects("rbxassetid://17599869964")[1] 
@@ -291,14 +291,14 @@ if not isfile("Nitrous") then
          local ping = string.format('%.0f', game.Stats.Network.ServerStatsItem["Data Ping"]:GetValue())
          local uid = "1"
          local fpsValue = string.split(game.Stats.Workspace.Heartbeat:GetValueString(), ".")[1]
-         WaterMarkLabel.Text = 'Nitrous<font color="rgb(74, 74, 74)"></font> - uid: <font color="rgb(74, 74, 74)">' .. uid .. '</font> / fps: <font color="rgb(255, 5, 135)">' .. fpsValue .. '</font> / ping: <font color="rgb(255, 5, 135)">' .. ping .. '</font> / time: <font color="rgb(255, 5, 135)">' .. time .. '</font>'
+         WaterMarkLabel.Text = 'fobro<font color="rgb(74, 74, 74)"></font> - uid: <font color="rgb(74, 74, 74)">' .. uid .. '</font> / fps: <font color="rgb(255, 5, 135)">' .. fpsValue .. '</font> / ping: <font color="rgb(255, 5, 135)">' .. ping .. '</font> / time: <font color="rgb(255, 5, 135)">' .. time .. '</font>'
        end
     end)
     return Watermark
  end
  
  local library = {
-    Title = 'Nitrous<font color="rgb(74, 74, 74)"></font> | Private',
+    Title = 'fobro<font color="rgb(74, 74, 74)"></font> | Private',
     keybind = Enum.KeyCode.RightBracket,
     Watermark = createWatermark(),
        Colors = {
@@ -350,13 +350,13 @@ if not isfile("Nitrous") then
     
     menu.bg.Position = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
     menu.Parent = CloneCore
-    menu.Name = "Nitrous_gui"
+    menu.Name = "fobro_gui"
     local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end)
     local CloneScreenGui = cloneref(Instance.new("ScreenGui"))
     ProtectGui(CloneScreenGui)   
     CloneScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
     CloneScreenGui.Parent = CloneCore
-    CloneScreenGui.Name = "Nitrous_gui"
+    CloneScreenGui.Name = "fobro_gui"
 
 
  
@@ -2356,7 +2356,7 @@ coroutine.wrap(animateText)()
                             if v == x then return true end
                             end return false end
                             function library:createConfig()
-                                makefolder("Nitrous")
+                                makefolder("fobro")
                                 local name = library.flags["config_name"]
                                 if contains(library.options["config_box"].values, name) then return library:Notify(name..".cfg already exists!", 5) end
                                 if name == "" then return library:Notify("You need to put a name in!", 5) end
@@ -2368,14 +2368,14 @@ coroutine.wrap(animateText)()
                                 else jig[i] = v
                                 end
                             end
-                            writefile("Nitrous/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+                            writefile("fobro/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
                             library:Notify("Succesfully created config "..name..".cfg!", 5)
                             library:refreshConfigs()
                         end
 
                         function library:saveConfig()
                             pcall(function()
-                                makefolder("Nitrous")
+                                makefolder("fobro")
                                 local name = library.flags["config_box"]
                                 if not name then
                                     return
@@ -2437,7 +2437,7 @@ coroutine.wrap(animateText)()
 
                 function library:refreshConfigs()
                     local tbl = {}
-                    for i,v in next, listfiles("Nitrous") do table.insert(tbl,v) end
+                    for i,v in next, listfiles("fobro") do table.insert(tbl,v) end
                     library.options["config_box"].refresh(tbl)
                 end      
             end)()                         
